@@ -1,0 +1,107 @@
+﻿<UserControl xmlns:UserControls="clr-namespace:Log_Recorder.Controls.UserControls"  x:Class="Log_Recorder.Controls.UserControls.WSContainer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Buttons="clr-namespace:Log_Recorder.Controls.Buttons"
+             xmlns:class="clr-namespace:Log_Recorder.DA.Class"
+             Loaded="UserControl_Loaded"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="Buttons:ImageButton" BasedOn="{StaticResource ImageButtonStyle}">
+            <Setter Property="Width" Value="85"/>
+            <Setter Property="Margin" Value="5,0,0,5"/>
+        </Style>
+        <CollectionViewSource x:Key="StrataComboBoxData" />
+        <CollectionViewSource x:Key="InstallationComboBoxData" />
+    </UserControl.Resources>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <UserControls:SheetHeader Margin="0,0,0,20" DataContext="{Binding GroupSheetData, Mode=TwoWay}"/>
+
+        <TabControl Grid.Row="1" Margin="0,0,0,10">
+            <TabControl.Items>
+                <TabItem Header="Strata">
+                    <DataGrid Margin="10" ItemsSource="{Binding Path=StrataList}" 
+                              VerticalGridLinesBrush="Gray" HorizontalGridLinesBrush="Gray" 
+                              CanUserAddRows="True" CanUserDeleteRows="True" 
+                              AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Depth" Width="100" Binding="{Binding Path=HoleDepth, StringFormat={}{0:N2}}"/>
+                            <DataGridComboBoxColumn Header="Legend" ItemsSource="{Binding Source={StaticResource StrataComboBoxData}}" Width="220" SelectedValueBinding="{Binding Path=Code}" SelectedValuePath="Code"  DisplayMemberPath="Description"  />
+                            <DataGridTextColumn Header="Description"  Width="300" Binding="{Binding Path=Description}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Sample And Tests">
+                    <DataGrid Margin="10" ItemsSource="{Binding Path=SampleOrTestList}" CanUserAddRows="True" CanUserDeleteRows="True" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Type" Width="120" Binding="{Binding Path=Type, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="Depth (m)" Binding="{Binding Path=Depth, StringFormat={}{0:N2}, Mode=TwoWay}" Width="120"/>
+                            <DataGridTextColumn Header="R1" Width="60" Binding="{Binding Path=R1, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="R2" Width="60" Binding="{Binding Path=R2, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="R3" Width="60" Binding="{Binding Path=R3, Mode=TwoWay, TargetNullValue=''}"/>
+                            <DataGridTextColumn Header="R4" Width="60" Binding="{Binding Path=R4, Mode=TwoWay, TargetNullValue=''}"/>
+                            <DataGridTextColumn Header="R5" Width="60" Binding="{Binding Path=R5, Mode=TwoWay, TargetNullValue=''}"/>
+                            <DataGridTextColumn Header="R6" Width="60" Binding="{Binding Path=R6, Mode=TwoWay, TargetNullValue=''}"/>
+                            <DataGridTextColumn Header="RN" Width="60" Binding="{Binding Path=RN, Mode=OneWay}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="Comment" Width="200" Binding="{Binding Path=Comment, Mode=TwoWay}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Water Levels">
+                    <DataGrid Margin="10" ItemsSource="{Binding Path=WaterLevelList}" AutoGenerateColumns="False" CanUserDeleteRows="True" CanUserAddRows="True">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="Date" Width="120">
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <DatePicker SelectedDate="{Binding  Path=Date, Mode=TwoWay}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Path=Date,StringFormat={}{0:yyyy/MM/dd}}" HorizontalAlignment="Center"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Hole Depth" Binding="{Binding Path=HoleDepth, StringFormat={}{0:N2}, Mode=TwoWay, TargetNullValue=''}" Width="120"/>
+                            <DataGridTextColumn Header="Casing Depth" Binding="{Binding Path=CasingDepth, StringFormat={}{0:N2}, Mode=TwoWay, TargetNullValue=''}" Width="120"/>
+                            <DataGridTextColumn Header="Water Level On Strike" Binding="{Binding Path=WaterLevelOnStrike, StringFormat={}{0:N2}, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="Water Level after 20mins" Binding="{Binding Path=WaterLevelAfter20Mins, StringFormat={}{0:N2}, Mode=TwoWay, TargetNullValue=''}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Installation">
+                    <DataGrid Margin="10" ItemsSource="{Binding Path=InstallationList}" AutoGenerateColumns="False" CanUserDeleteRows="True" CanUserAddRows="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Depth" Width="100" Binding="{Binding Path=Depth, StringFormat={}{0:N2}}"/>
+                            <DataGridComboBoxColumn Header="Description" ItemsSource="{Binding Source={StaticResource InstallationComboBoxData}}" Width="200" SelectedValueBinding="{Binding Path=Code}" SelectedValuePath="Code"  DisplayMemberPath="Description"  />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+            </TabControl.Items>
+        </TabControl>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Remarks" Margin="0,0,0,5"/>
+            <ListBox x:Name="CommentList" Grid.Row="1" ItemsSource="{Binding Path=Remarks}"/>
+            <StackPanel Grid.Column="1" Grid.Row="1">
+                <Buttons:ImageButton x:Name="btnAddComment" Click="btnAddComment_Click" Image="/Images/16/comments-16.png" Title="Add" />
+                <Buttons:ImageButton x:Name="btnDeleteComment" Click="btnDeleteComment_Click" Image="/Images/16/x-mark-16.png" Title="Delete" Margin="5,0,0,0"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

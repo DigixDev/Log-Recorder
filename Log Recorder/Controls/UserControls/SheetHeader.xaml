@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="Log_Recorder.Controls.UserControls.SheetHeader"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:TextBoxeControls="clr-namespace:Log_Recorder.Controls.TextBoxControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300">
+    <UserControl.Resources>
+        <Style TargetType="TextBox" BasedOn="{StaticResource MainTextBox}">
+            <Setter Property="Margin" Value="5,2,10,2"/>
+        </Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="Margin" Value="5,2,10,2"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBoxeControls:ProjectTextBox" BasedOn="{StaticResource MainTextBox}">
+            <Setter Property="Margin" Value="5,2,30,2"/>
+        </Style>
+    </UserControl.Resources>
+    <Border BorderBrush="Gray" BorderThickness="1" >
+        <Grid Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <!--<Image Source="/Images/48/pages-3-48.png" Style="{StaticResource Image48}" Grid.RowSpan="3"/>-->
+
+            <TextBlock Text="Equipment Type:" Grid.Row="1" Grid.Column="0"/>
+            <TextBox Text="{Binding Path=EquimnetType, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" />
+
+            <TextBlock Text="Ground Level:" Grid.Row="0" Grid.Column="0"/>
+            <TextBox Text="{Binding Path=GroundLevel, Mode=TwoWay}" Grid.Row="0" Grid.Column="1" />
+
+            <TextBlock Text="Logged By:" Grid.Row="0" Grid.Column="3"/>
+            <TextBox Text="{Binding Path=LoggedBy, Mode=TwoWay}" Grid.Row="0" Grid.Column="4" />
+
+            <TextBlock Text="Checked By:" Grid.Row="1" Grid.Column="3"/>
+            <TextBox Text="{Binding Path=CheckedBy, Mode=TwoWay}" Grid.Row="1" Grid.Column="4" />
+
+            <TextBlock Text="Date Commenced:" Grid.Row="0" Grid.Column="6"/>
+            <DatePicker SelectedDate="{Binding Path=DateCommenced, Mode=TwoWay}" Grid.Row="0" Grid.Column="7" />
+
+            <TextBlock Text="Date Completed:" Grid.Row="1" Grid.Column="6"/>
+            <DatePicker SelectedDate="{Binding Path=DateCompleted, Mode=TwoWay}" Grid.Row="1" Grid.Column="7" />
+
+        </Grid>
+    </Border>
+</UserControl>

@@ -1,0 +1,212 @@
+﻿<Window xmlns:UserControls="clr-namespace:Log_Recorder.Controls.UserControls"  xmlns:Buttons="clr-namespace:Log_Recorder.Controls.Buttons"  x:Class="Log_Recorder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:classes="clr-namespace:Log_Recorder.Classes"
+        xmlns:Commands="clr-namespace:Log_Recorder.Classes.Commands"
+        Loaded="Window_Loaded"
+        Closing="Window_Closing"
+        Foreground="DarkGray"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        Title="MainWindow" Icon="1423260959_287299.ico" Height="650" Width="900">
+    <Window.Resources>
+        <Style TargetType="StatusBarItem" x:Key="StatusBarCompany">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="1"/>
+        </Style>
+        
+        <Style TargetType="Image" x:Key="StatusImage">
+            <Setter Property="Margin" Value="3,0,3,0"/>
+        </Style>
+        
+        <Style TargetType="StatusBarItem" x:Key="StatusBarNormal">
+            <Setter Property="Foreground" Value="#272727"/>
+            <Setter Property="Margin" Value="1"/>
+        </Style>
+
+        <Style TargetType="Buttons:ImageButton" BasedOn="{StaticResource ImageButtonStyle}">
+            <Setter Property="Margin" Value="5,0,0,5"/>
+        </Style>
+    </Window.Resources>
+    <Window.CommandBindings>
+        
+        <CommandBinding Command="Commands:CustomCommands.ExitApplication" Executed="CommandExitApplication_Executed" />
+        <CommandBinding Command="Commands:CustomCommands.Export" CanExecute="CommandExport_CanExecute" Executed="CommandExport_Executed"/>
+        <CommandBinding Command="Commands:CustomCommands.NewProject" Executed="CommandNewProject_Executed"/>
+        <CommandBinding Command="Commands:CustomCommands.OpenProject" Executed="CommandOpenProject_Executed" />
+        <CommandBinding Command="Commands:CustomCommands.SaveProject" Executed="CommandSaveProject_Executed" CanExecute="CommandSaveProject_CanExecute"/>
+        <CommandBinding Command="Commands:CustomCommands.OpenProjectInfo" Executed="CommandOpenProjectInfo_Executed"/>
+        <CommandBinding Command="Commands:CustomCommands.OpenUserList" Executed="CommandOpenUserList_Executed" CanExecute="CommandOpenUserList_CanExecute"/>
+        <CommandBinding Command="Commands:CustomCommands.ShowStrataPatterns" Executed="CommandShowStrataPatterns_Executed"/>
+        <CommandBinding Command="Commands:CustomCommands.ChangePassword" Executed="CommandChangePassword_Executed" />
+        <CommandBinding Command="Commands:CustomCommands.AddSheet" Executed="CommandAddSheet_Executed"/>
+        <CommandBinding Command="Commands:CustomCommands.DeleteActiveSheet" Executed="CommandDeleteSheet_Executed" CanExecute="CommandDeleteSheet_CanExecute"/>
+        <CommandBinding Command="Commands:CustomCommands.RenameActiveSheet" Executed="CommandRenameSheet_Executed" CanExecute="CommandRenameSheet_CanExecute"/>
+        <CommandBinding x:Name="ChangeType"  Command="Commands:CustomCommands.ChangeType" CanExecute="ChangeType_CanExecute"/>
+        <CommandBinding x:Name="ChangeTypeToWS"  Command="Commands:CustomCommands.ChangeTypeToWS" CanExecute="ChangeTypeToWS_CanExecute" Executed="ChangeTypeToWS_Executed" />
+        <CommandBinding x:Name="ChangeTypeToBH"  Command="Commands:CustomCommands.ChangeTypeToBH" CanExecute="ChangeTypeToBH_CanExecute" Executed="ChangeTypeToBH_Executed"/>
+        <CommandBinding x:Name="ChangeTypeToRBH"  Command="Commands:CustomCommands.ChangeTypeToRBH" CanExecute="ChangeTypeToRBH_CanExecute" Executed="ChangeTypeToRBH_Executed" />
+        <CommandBinding x:Name="ChangeTypeToTP"  Command="Commands:CustomCommands.ChangeTypeToTP" CanExecute="ChangeTypeToTP_CanExecute" Executed="ChangeTypeToTP_Executed"/>
+
+
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Menu>
+            <MenuItem Header="_File">
+                <MenuItem x:Name="menuItemExport" Header="Ex_port" Command="Commands:CustomCommands.Export">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/16/pdf.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="menuItemExit" Header="E_xit" Command="Commands:CustomCommands.ExitApplication" >
+                    <MenuItem.Icon>
+                        <Image Source="/images/16/exit.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Project">
+                <MenuItem x:Name="menuItemNewProject" Header="_New Project" Command="Commands:CustomCommands.NewProject" >
+                    <MenuItem.Icon>
+                        <Image Source="pack://application:,,,/images/16/new.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="menuItemOpenProject" Header="_Open Project" Command="Commands:CustomCommands.OpenProject">
+                    <MenuItem.Icon>
+                        <Image Source="pack://application:,,,/images/16/open.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="menuItemSaveProject" Header="_Save Project" Command="Commands:CustomCommands.SaveProject">
+                    <MenuItem.Icon>
+                        <Image Source="pack://application:,,,/images/16/disk.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="menuItemProjectInformation" Header="Project _Information" Command="Commands:CustomCommands.OpenProjectInfo" >
+                    <MenuItem.Icon>
+                        <Image Source="pack://application:,,,/images/16/document_properties.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="S_heet">
+                <MenuItem Header="Add"  Command="Commands:CustomCommands.AddSheet">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/16/table_add.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Delete" Command="Commands:CustomCommands.DeleteActiveSheet">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/16/table_delete.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Rename" Command="Commands:CustomCommands.RenameActiveSheet">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/16/rename.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="Chan_ge Type" Command="Commands:CustomCommands.ChangeType">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/16/table_edit.png"/>
+                    </MenuItem.Icon>
+                    <MenuItem Header="WS" Command="Commands:CustomCommands.ChangeTypeToWS">
+                        <MenuItem.Icon>
+                            <Image Source="/Images/16/table.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="BH" Command="Commands:CustomCommands.ChangeTypeToBH">
+                        <MenuItem.Icon>
+                            <Image Source="/Images/16/table.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="RBH" Command="Commands:CustomCommands.ChangeTypeToRBH">
+                        <MenuItem.Icon>
+                            <Image Source="/Images/16/table.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="TP" Command="Commands:CustomCommands.ChangeTypeToTP">
+                        <MenuItem.Icon>
+                            <Image Source="/Images/16/table.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Us_er">
+                <MenuItem x:Name="menuItemUserList" Header="_User List" Command="Commands:CustomCommands.OpenUserList">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/16/user.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="menuItemChangePassword" Header="Chan_ge Password" Command="Commands:CustomCommands.ChangePassword">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/16/change_password.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Da_ta">
+                <MenuItem x:Name="menuItemStrataPattern" Header="Strata Patt_erns" Command="Commands:CustomCommands.ShowStrataPatterns">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/16/edit.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+       <UserControls:ProjectHeader Margin="10" Grid.Row="1" DataContext="{Binding}"/>
+        <TabControl Grid.Row="2" Margin="10,0,10,10" x:Name="MainTabControl">
+        </TabControl>
+        <StatusBar Grid.Row="4">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            
+            <StatusBarItem Style="{StaticResource StatusBarCompany}">
+            </StatusBarItem>
+
+            <StatusBarItem x:Name="statusItemUserName" Visibility="Collapsed" Grid.Column="2" Style="{StaticResource StatusBarNormal}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/16/user.png" Style="{StaticResource StatusImage}"/>
+                    <TextBlock x:Name="txtCurrentUserName"/>
+                </StackPanel>
+            </StatusBarItem>
+            
+            <Separator Grid.Column="3"/>
+            
+            <StatusBarItem x:Name="statusItemUserRole" Visibility="Collapsed" Grid.Column="4" Style="{StaticResource StatusBarNormal}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/16/vcard.png" Style="{StaticResource StatusImage}"/>
+                    <TextBlock x:Name="txtCurrentUserRoleTitle"/>
+                </StackPanel>
+            </StatusBarItem>
+            
+            <Separator Grid.Column="5"/>
+            
+            <StatusBarItem x:Name="statusItemDate" Visibility="Collapsed" Grid.Column="6" Style="{StaticResource StatusBarNormal}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/16/date.png" Style="{StaticResource StatusImage}"/>
+                    <TextBlock x:Name="txtCurrentDate"/>
+                </StackPanel>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>

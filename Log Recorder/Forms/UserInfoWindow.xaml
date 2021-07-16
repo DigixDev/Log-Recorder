@@ -1,0 +1,52 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Buttons="clr-namespace:Log_Recorder.Controls.Buttons" 
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner"
+        x:Class="Log_Recorder.Forms.UserInfoWindow"
+    Loaded="Window_Loaded"
+        Title="UserListWindow">
+    <Window.Resources>
+        <Style TargetType="Buttons:ImageButton" BasedOn="{StaticResource ImageButtonStyle}">
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Margin" Value="0,0,5,0"/>
+        </Style>
+        <Style TargetType="TextBox" BasedOn="{StaticResource MainTextBox}">
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Margin" Value="5,5,0,5"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Margin" Value="5,5,0,5"/>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="User Name:"/>
+        <TextBox x:Name="txtUserName" Grid.Column="1" TextChanged="txtUserName_TextChanged"/>
+
+        <TextBlock Text="User Role:" Grid.Row="1"/>
+        <ComboBox x:Name="cbUserRole" Grid.Row="1" Grid.Column="1"/>
+
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0,15,0,0">
+            <Buttons:ImageButton x:Name="btnSave" IsEnabled="False" Title="Save" Click="btnSave_Click" IsDefault="True" Image="/Images/16/save-16.png" />
+            <Buttons:ImageButton x:Name="btnCancel" Title="Cancel" Image="/Images/16/cancel-16.png" Click="btnCancel_Click" IsCancel="True"/>
+        </StackPanel>
+    </Grid>
+</Window>

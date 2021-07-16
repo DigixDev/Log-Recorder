@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log Recorder", "Log Recorder\Log Recorder.csproj", "{2598870A-CE08-4567-A488-5DAD953E1A61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log Recorder.DA", "Log Recorder.DA\Log Recorder.DA.csproj", "{FC8CC933-0C75-494C-B001-0283DEB1899F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Export", "Export\Export.csproj", "{1842607D-197C-4259-8623-9053DFAACA72}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2598870A-CE08-4567-A488-5DAD953E1A61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2598870A-CE08-4567-A488-5DAD953E1A61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2598870A-CE08-4567-A488-5DAD953E1A61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2598870A-CE08-4567-A488-5DAD953E1A61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC8CC933-0C75-494C-B001-0283DEB1899F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC8CC933-0C75-494C-B001-0283DEB1899F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC8CC933-0C75-494C-B001-0283DEB1899F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC8CC933-0C75-494C-B001-0283DEB1899F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1842607D-197C-4259-8623-9053DFAACA72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1842607D-197C-4259-8623-9053DFAACA72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1842607D-197C-4259-8623-9053DFAACA72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1842607D-197C-4259-8623-9053DFAACA72}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

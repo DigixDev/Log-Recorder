@@ -1,0 +1,40 @@
+﻿<Window xmlns:Buttons="clr-namespace:Log_Recorder.Controls.Buttons"  x:Class="Log_Recorder.Forms.Patterns"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        ShowInTaskbar="False"
+        WindowStyle="ToolWindow"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        xmlns:UserControls="clr-namespace:Log_Recorder.Controls.UserControls"
+        Loaded="Window_Loaded"
+        Title="Patterns" Height="500" Width="600">
+    <Window.Resources>
+        <Style TargetType="Buttons:ImageButton" BasedOn="{StaticResource ImageButtonStyle}">
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <TabControl>
+            <TabControl.Items>
+                <TabItem Header="Strata">
+                    <ScrollViewer Margin="10">
+                        <ItemsControl ItemsSource="{Binding Path=StrataPatterns}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <UserControls:PatternListItem Description="{Binding Path=Description, Mode=OneTime}" Code="{Binding Path=Code,Mode=OneTime}" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </TabItem>
+            </TabControl.Items>
+        </TabControl>
+        <Buttons:ImageButton x:Name="btnClose" Title="Close" IsCancel="True" Grid.Row="1"/>
+    </Grid>
+</Window>

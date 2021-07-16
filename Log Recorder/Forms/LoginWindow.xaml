@@ -1,0 +1,60 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Buttons="clr-namespace:Log_Recorder.Controls.Buttons" x:Class="Log_Recorder.Forms.LoginWindow"
+        xmlns:Converter="clr-namespace:Log_Recorder.Converter"
+        WindowStyle="ToolWindow"
+        Foreground="#555"
+        ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner"
+        Loaded="Window_Loaded"
+        Title="Log On System">
+    <Window.Resources>
+        <Style TargetType="Buttons:ImageButton" BasedOn="{StaticResource ImageButtonStyle}">
+            <Setter Property="Width" Value="90"/>
+            <Setter Property="Margin" Value="0,0,5,0"/>
+        </Style>
+        <Style TargetType="PasswordBox" BasedOn="{StaticResource MainPasswordBox}">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="22"/>
+        </Style>
+        <Style TargetType="ComboBox" BasedOn="{StaticResource MainComboBox}">
+            
+        </Style>
+        <Converter:TextToBooleanConverter x:Key="TextToBool"/>
+    </Window.Resources>
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="0,10,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Source="/images/48/private-48.png" Style="{StaticResource Image48}"/>
+
+            <TextBlock Text="User Name:" Grid.Row="0" Grid.Column="1" Margin="10,0,0,0"/>
+            <ComboBox x:Name="cbUserName" Grid.Row="0" Grid.Column="2" SelectedValuePath="UserId" DisplayMemberPath="UserName"/>
+
+            <TextBlock Text="Password:" Grid.Row="1" Grid.Column="1" Margin="10,0,0,0"/>
+            <PasswordBox x:Name="txtPassword" Grid.Row="1" Grid.Column="2" PasswordChanged="txtPassword_PasswordChanged"/>
+
+        </Grid>
+       <TextBlock x:Name="txtPrompt" Text="Incorrect password" Grid.Row="1" Foreground="Red" Margin="0,3" HorizontalAlignment="Right" Visibility="Collapsed"/>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0,10,0,0">
+            <Buttons:ImageButton x:Name="btnCancel" Title="Cancel" Image="/Images/16/cancel-16.png"  Click="btnCancel_Click" HorizontalAlignment="Right" IsCancel="True"/>
+            <Buttons:ImageButton x:Name="btnLogOn" Title="Log On" Image="/Images/16/ok-16.png"  Click="btnLogOn_Click" IsDefault="True" IsEnabled="False"/>
+        </StackPanel>
+    </Grid>
+</Window>

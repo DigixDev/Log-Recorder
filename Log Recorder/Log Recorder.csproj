@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2598870A-CE08-4567-A488-5DAD953E1A61}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Log_Recorder</RootNamespace>
+    <AssemblyName>Log Software</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\User\Documents\Publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>1423260959_287299.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>8E8A46ADE30DE1FB8F039FB90010934F73C7EC0F</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Log Recorder_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.1.2\lib\net40\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Controls\UserControls\DPContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UserControls\PatternListItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UserControls\SheetHeader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UserControls\RBHContainer .xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UserControls\ProjectHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UserControls\BHContainer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UserControls\TPContainer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UserControls\WSContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\ChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\CommantWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Export.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\MessageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\NewSheet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\ProjectWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\RenameSheet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Patterns.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\StratumWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\UserListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\UserInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\Commands\CustomCommands.cs" />
+    <Compile Include="Classes\ControlButtons.cs" />
+    <Compile Include="Controls\Buttons\ImageButton.cs" />
+    <Compile Include="Controls\TextBoxControls\NumberTextBox.cs" />
+    <Compile Include="Controls\TextBoxControls\ProjectTextBox.cs" />
+    <Compile Include="Controls\UserControls\DPContainer.xaml.cs">
+      <DependentUpon>DPContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserControls\PatternListItem.xaml.cs">
+      <DependentUpon>PatternListItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserControls\SheetHeader.xaml.cs">
+      <DependentUpon>SheetHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserControls\RBHContainer .xaml.cs">
+      <DependentUpon>RBHContainer .xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserControls\ProjectHeader.xaml.cs">
+      <DependentUpon>ProjectHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserControls\BHContainer.xaml.cs">
+      <DependentUpon>BHContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserControls\TPContainer.xaml.cs">
+      <DependentUpon>TPContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserControls\WSContainer.xaml.cs">
+      <DependentUpon>WSContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converter\TextToBooleanConverter.cs" />
+    <Compile Include="Converter\UserRoleDescription.cs" />
+    <Compile Include="Forms\ChangePassword.xaml.cs">
+      <DependentUpon>ChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CommantWindow.xaml.cs">
+      <DependentUpon>CommantWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Export.xaml.cs">
+      <DependentUpon>Export.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MessageWindow.xaml.cs">
+      <DependentUpon>MessageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewSheet.xaml.cs">
+      <DependentUpon>NewSheet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProjectWindow.xaml.cs">
+      <DependentUpon>ProjectWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RenameSheet.xaml.cs">
+      <DependentUpon>RenameSheet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Patterns.xaml.cs">
+      <DependentUpon>Patterns.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StratumWindow.xaml.cs">
+      <DependentUpon>StratumWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserListWindow.xaml.cs">
+      <DependentUpon>UserListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserInfoWindow.xaml.cs">
+      <DependentUpon>UserInfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\IRenameable.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ModelView\ConvertTextToBoolean.cs" />
+    <Compile Include="ModelView\ModelViewBase.cs" />
+    <Compile Include="ModelView\ProjectModelView.cs" />
+    <Compile Include="ModelView\RelayCommands.cs" />
+    <Compile Include="ModelView\PatternModelView.cs" />
+    <Compile Include="ModelView\UserListModelView.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="Log Recorder_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Export\Export.csproj">
+      <Project>{1842607d-197c-4259-8623-9053dfaaca72}</Project>
+      <Name>Export</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Log Recorder.DA\Log Recorder.DA.csproj">
+      <Project>{fc8cc933-0c75-494c-b001-0283deb1899f}</Project>
+      <Name>Log Recorder.DA</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\document.png" />
+    <Resource Include="Images\48\document_pencil.png" />
+    <Resource Include="Images\48\key.png" />
+    <Resource Include="Images\48\lock.png" />
+    <Resource Include="Images\48\settings.png" />
+    <Resource Include="Images\48\user_info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\table_add.png" />
+    <Resource Include="Images\16\table_delete.png" />
+    <Resource Include="Images\16\table_edit.png" />
+    <Resource Include="Images\16\table_error.png" />
+    <Resource Include="Images\16\save.png" />
+    <Resource Include="Images\48\user.png" />
+    <Resource Include="Images\48\warning.png" />
+    <Resource Include="Images\48\_0011_Info.png" />
+    <Resource Include="Images\48\padlock.png" />
+    <Resource Include="Images\48\_0046_User.png" />
+    <Resource Include="Images\48\_0047_ID.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\date.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\accept.png" />
+    <Resource Include="Images\16\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\page_add.png" />
+    <Resource Include="Images\16\page_go.png" />
+    <Resource Include="Images\16\page_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\cancel-16.png" />
+    <Resource Include="Images\16\ok-16.png" />
+    <Resource Include="Images\16\open-in-browser-16.png" />
+    <Resource Include="Images\16\power-3-16.png" />
+    <Resource Include="Images\16\save-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\pages-2-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\private-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\64\private-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\pdf-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\save-2-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\delete-16.png" />
+    <Resource Include="Images\16\x-mark-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\comments-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\pages-3-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\open-in-browser-2-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\pages-3-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\document_properties.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\1422918635_308248.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\vcard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\change_password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="1423260959_287299.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\edit.png" />
+    <Resource Include="Images\16\pdf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\disk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\16\rename.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Patterns\101.png" />
+    <Resource Include="Images\Patterns\102.png" />
+    <Resource Include="Images\Patterns\103.png" />
+    <Resource Include="Images\Patterns\104.png" />
+    <Resource Include="Images\Patterns\105.png" />
+    <Resource Include="Images\Patterns\106.png" />
+    <Resource Include="Images\Patterns\107.png" />
+    <Resource Include="Images\Patterns\108.png" />
+    <Resource Include="Images\Patterns\109.png" />
+    <Resource Include="Images\Patterns\110.png" />
+    <Resource Include="Images\Patterns\111.png" />
+    <Resource Include="Images\Patterns\112.png" />
+    <Resource Include="Images\Patterns\113.png" />
+    <Resource Include="Images\Patterns\114.png" />
+    <Resource Include="Images\Patterns\115.png" />
+    <Resource Include="Images\Patterns\116.png" />
+    <Resource Include="Images\Patterns\117.png" />
+    <Resource Include="Images\Patterns\118.png" />
+    <Resource Include="Images\Patterns\119.png" />
+    <Resource Include="Images\Patterns\120.png" />
+    <Resource Include="Images\Patterns\121.png" />
+    <Resource Include="Images\Patterns\122.png" />
+    <Resource Include="Images\Patterns\123.png" />
+    <Resource Include="Images\Patterns\124.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Patterns\201.png" />
+    <Resource Include="Images\Patterns\202.png" />
+    <Resource Include="Images\Patterns\203.png" />
+    <Resource Include="Images\Patterns\204.png" />
+    <Resource Include="Images\Patterns\205.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Patterns\125.png" />
+    <Resource Include="Images\Patterns\126.png" />
+    <Resource Include="Images\Patterns\127.png" />
+    <Resource Include="Images\Patterns\128.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfPattern xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Pattern>
+    <Code>101</Code>
+    <Description>Made Ground</Description>
+  </Pattern>
+  <Pattern>
+    <Code>102</Code>
+    <Description>Topsoil</Description>
+  </Pattern>
+  <Pattern>
+    <Code>103</Code>
+    <Description>Sand</Description>
+  </Pattern>
+  <Pattern>
+    <Code>104</Code>
+    <Description>Boulders and Cobbles</Description>
+  </Pattern>
+  <Pattern>
+    <Code>105</Code>
+    <Description>Gravel</Description>
+  </Pattern>
+  <Pattern>
+    <Code>106</Code>
+    <Description>Silt</Description>
+  </Pattern>
+  <Pattern>
+    <Code>107</Code>
+    <Description>Clay</Description>
+  </Pattern>
+  <Pattern>
+    <Code>108</Code>
+    <Description>Peat</Description>
+  </Pattern>
+  <Pattern>
+    <Code>109</Code>
+    <Description>Silty SAND</Description>
+  </Pattern>
+  <Pattern>
+    <Code>110</Code>
+    <Description>Gravelly SAND/SAND and GRAVEL</Description>
+  </Pattern>
+  <Pattern>
+    <Code>111</Code>
+    <Description>Silty MUDSTONE</Description>
+  </Pattern>
+  <Pattern>
+    <Code>112</Code>
+    <Description>Claystone</Description>
+  </Pattern>
+  <Pattern>
+    <Code>113</Code>
+    <Description>Other</Description>
+  </Pattern>
+  <Pattern>
+    <Code>114</Code>
+    <Description>Chalk</Description>
+  </Pattern>
+  <Pattern>
+    <Code>115</Code>
+    <Description>Limestone</Description>
+  </Pattern>
+  <Pattern>
+    <Code>116</Code>
+    <Description>Conglomerate</Description>
+  </Pattern>
+  <Pattern>
+    <Code>117</Code>
+    <Description>Breccia</Description>
+  </Pattern>
+  <Pattern>
+    <Code>118</Code>
+    <Description>Sandstone</Description>
+  </Pattern>
+  <Pattern>
+    <Code>119</Code>
+    <Description>Siltstone</Description>
+  </Pattern>
+  <Pattern>
+    <Code>120</Code>
+    <Description>Mudstone</Description>
+  </Pattern>
+  <Pattern>
+    <Code>121</Code>
+    <Description>Shale</Description>
+  </Pattern>
+  <Pattern>
+    <Code>122</Code>
+    <Description>Coal</Description>
+  </Pattern>
+  <Pattern>
+    <Code>123</Code>
+    <Description>Pyroclastic (Volcanic ash)</Description>
+  </Pattern>
+  <Pattern>
+    <Code>124</Code>
+    <Description>Gypsum, Rocksalt, etc</Description>
+  </Pattern>
+  <Pattern>
+    <Code>125</Code>
+    <Description>Silty clay</Description>
+  </Pattern>
+    <Pattern>
+    <Code>126</Code>
+    <Description>Silty sandy clay</Description>
+  </Pattern>
+    <Pattern>
+    <Code>127</Code>
+    <Description>Sandy clay</Description>
+  </Pattern>
+    <Pattern>
+    <Code>128</Code>
+    <Description>Sandy gravelly clay</Description>
+  </Pattern>
+  <Pattern>
+    <Code>201</Code>
+    <Description>Plain pipe with bentonite surround</Description>
+  </Pattern>
+  <Pattern>
+    <Code>202</Code>
+    <Description>Slotted pipe with gravel surround</Description>
+  </Pattern>
+  <Pattern>
+    <Code>203</Code>
+    <Description>Backfill with arisings</Description>
+  </Pattern>
+  <Pattern>
+    <Code>204</Code>
+    <Description>Backfill with bentonite</Description>
+  </Pattern>
+  <Pattern>
+    <Code>205</Code>
+    <Description>Backfill with gravel</Description>
+  </Pattern>
+
+</ArrayOfPattern>
